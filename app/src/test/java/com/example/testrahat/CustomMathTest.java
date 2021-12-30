@@ -43,6 +43,9 @@ public class CustomMathTest {
     @Test
     public void spaceFieldCase() {
         assertEquals("10", math.add(" 5 ", " 5 "));
+        assertEquals("0", math.sub(" 5 ", " 5 "));
+        assertEquals("25", math.mult(" 5 ", " 5 "));
+        assertEquals("1", math.div(" 5 ", " 5 "));
         System.out.println("spaceFieldCase");
     }
 
@@ -52,7 +55,7 @@ public class CustomMathTest {
         System.out.println("divideByZero");
     }
 
-    
+
     @Test
     public void simpleTwoWordsReverse() {
         assertEquals("World Hello", math.reverseString("Hello World"));
@@ -70,12 +73,6 @@ public class CustomMathTest {
         assertEquals("Four Three Two One", math.reverseString("  One Two Three Four  "));
         System.out.println("spaceWordsReverse");
     }
-
-     @Test
-     public void removeSpace() {
-        assertEquals("Books", math.removeSpace("nook"));
-         System.out.println("removeSpace");
-     }
 
     @Test
     public void commaRegexReverse() {

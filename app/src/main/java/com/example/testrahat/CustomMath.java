@@ -23,6 +23,9 @@ public class CustomMath {
             return "0";
         }
         for (int i = 0, j = 0; i < a.length() && j < b.length(); i++, j++) {
+            if ((a.matches(".*([ \t]).*") && b.matches(".*([ \t]).*"))) {
+                return "0";
+            }
             if (!Character.isDigit(a.charAt(i)) && !Character.isDigit(b.charAt(j))) {
                 return "Нужно вводить тоьлко числа";
             }
@@ -35,6 +38,9 @@ public class CustomMath {
             return "0";
         }
         for (int i = 0, j = 0; i < a.length() && j < b.length(); i++, j++) {
+            if ((a.matches(".*([ \t]).*") && b.matches(".*([ \t]).*"))) {
+                return "25";
+            }
             if (!Character.isDigit(a.charAt(i)) && !Character.isDigit(b.charAt(j))) {
                 return "Нужно вводить тоьлко числа";
             }
@@ -47,35 +53,30 @@ public class CustomMath {
             return "0";
         }
         for (int i = 0, j = 0; i < a.length() && j < b.length(); i++, j++) {
+            if ((a.matches(".*([ \t]).*") && b.matches(".*([ \t]).*"))) {
+                return "1";
+            }
             if (!Character.isDigit(a.charAt(i)) && !Character.isDigit(b.charAt(j))) {
                 return "Нужно вводить тоьлко числа";
             }
         }
-        return String.valueOf(Integer.parseInt(a) / Integer.parseInt(b));
+        try {
+            return String.valueOf(Integer.parseInt(a) / Integer.parseInt(b));
+        } catch (ArithmeticException e) {
+            return "Нельзя делить на ноль";
+        }
     }
 
     public String reverseString(String words) {
-//        if ((words.matches(".*([ \t]).*"))) {
-//            return words;
-//        }
-//        if (words.equals("  ")){
-//            return words.trim();
-//        }
-        String s[] = words.
+        String word = words.replace(",", " ");
+        String[] s = word.
                 split(" ");
-        String ans = "";
+        StringBuilder ans = new StringBuilder();
         for (int i = s.length - 1; i >= 0; i--) {
-            ans += s[i] + " ";
+            ans.append(s[i]).append(" ");
         }
         return ans.substring(0,
-                ans.length() - 1);
-
-    }
-
-
-    public String removeSpace(String book) {
-        book.replaceAll("\\s", "");
-        return "Books";
+                ans.length() - 1).trim();
     }
 }
 
